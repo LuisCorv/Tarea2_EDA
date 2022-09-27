@@ -9,7 +9,7 @@ Los pasos para utilizar el codigo son:
         Una vez echo esto notaremos que se crearon nuevos archivos en la carpeta tests, incluyendo un Makefile. Para que se ejecute este Makefile se
         debe de ejecutar el siguiente comando make (si fallase ocupe este mingw32-make). Con esto se nos deberia de generar un executable de nombre
         test.exe . Para correr este ejecutable debe ingresar un comando que varia dependiendo de su dispositivo, en el caso de windows 
-        seria test.exe , ademas de eso, se le debe de pasar el .html a leer a traves de la terminal, es decir, si se tiene un hola.html, se tendria
+        seria test.exe , ademas de eso, se le debe de pasar el .html a leer a traves de la terminal, es decir, si se tiene un 'hola.html', se tendria
         que escribir el comando test.exe hola.html, para que el ejecutable ejecute con ese .html. 
         
         Cabe recalcar que todos estos comandos se escriben en la terminal, y que el resultado de la ejecucion se muestra en un archivo .log , el
@@ -21,15 +21,14 @@ Los pasos para utilizar el codigo son:
     ♦♦♦♦♦♦♦♦♦♦
 
     1.1° En el caso de haber escrito en la terminal solo el ejecutable, se imprimiria en consola un mensaje de error que dira:
-                            terminate called after throwing an instance of 'std::logic_error'
-                                what():  basic_string::_M_construct null not valid 
+                            "Debe de ingresar un archivo  para que el programa funcione"
         Lo que quiere dicir, que no se pudo ejecutar el programa ya que no se le a pasado un archivo atraves de la terminal.
     
-    1.2° En el caso de haber escrito en la terminal el ejecutable y un .html que no 'existe', se imprimiria en consola un mensaje de error que dira 
-         "Error, no se puede habrir el archivo nombre_archivo" , donde nombre_archivo corresponde al nombre del .html ingresado por terminal.
+    1.2° En el caso de haber escrito en la terminal el ejecutable y un archivo que no es .html , se imprimiria en consola un mensaje de error que dira 
+         "Debe de ingresar un archivo .html para que el programa funcione".
 
-    1.3° En el caso de haber escrito en la terminal el ejecutable y un .html que si fue encontrado, deberia de aparecer el siguiente mensaje en 
-         la terminal ""output -> nombre_salida", donde nombre_salida es el nombre del archivo .log creado con los resultados de la ejecución.
+    1.3° En el caso de haber escrito en la terminal el ejecutable y un archivo .html , deberia de aparecer el siguiente mensaje en 
+         la terminal "output -> nombre_salida", donde nombre_salida es el nombre del archivo .log creado con los resultados de la ejecución.
          Estos resultados pueden ser de 2 formatos:
 
          • Si no ocurren errores con los tags del .html ingresado, al final del archivo .log deberia aparecer el mensaje " 0 Errores ♪♪♪♪"
@@ -49,4 +48,21 @@ Los pasos para utilizar el codigo son:
 
         Ademas, cada vez que se logra emparejar correctamente un tag, se escribe en el archivo .log un mensaje como el siguiente ejemplo siguiente:
             "tag <li> ok ♪♪ "
-       
+    
+    ### EJEMPLO ###
+    Si se tiene un archivo doc2.html con la siguiente estructura:
+        "<h1><p> texto 
+        </p>
+        </h1> 
+
+        <h1><p> texto </h1></p>"
+    El programa deberia de decirnos que hay un error en la linea 4, ya que se esperaba un </p> en lugar de un </h1>.
+    Para probar esto, se ejecuta el siguiente comando " test.exe doc2.html " (recuerde seguir los pasos descritos al inicio),
+    En consola nos aparecera un "output -> doc2.log". Si abrimos ese archivo, nos mostrara los 'aciertos', y el 1° error que se encuentre,
+    en este caso, el doc2.log seria:
+        "tag <p> ok ♪♪ 
+        tag <h1> ok ♪♪ 
+        ---- Error en la linea 4
+        Se esperaba </p> en lugar de </h1>
+        ----"
+    Esto nos demuestra que el programa logra mostrarnos el error presentado en el doc2.html.
