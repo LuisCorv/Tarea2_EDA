@@ -1,0 +1,8 @@
+tag <li> ok ♪♪ 
+tag <li> ok ♪♪ 
+tag <li> ok ♪♪ 
+tag <li> ok ♪♪ 
+tag <li> ok ♪♪ 
+ ---- Error en la linea 6
+ Se esperaba </body> en lugar de </ol>
+ ----

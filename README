@@ -42,6 +42,7 @@ Los pasos para utilizar el codigo son:
             error_tag es el tag que se encontro en ese lugar.
 
             ♦♦♦♦♦♦♦♦♦♦
+            numero_linea se inicia en -1, para que en la primera linea tenga valor igual a 0, si se quiere iniciar el conteo desde 1, cambiar de -1 a 0
             En caso de que 'sobrase' almenos 1 tag de apertura en el stack, el mensaje de error seria el mismo de arriba, solo que 
             ahora el error_tag diria ninguno.
             ♦♦♦♦♦♦♦♦♦♦

@@ -182,7 +182,7 @@ int main(int nargs, char** vargs){
 				espererado_tag="</center>";
 			}
 			if (error_tag=="ninguno"){
-				espererado_tag= get_name(&top_tag,">");
+				espererado_tag= "</"+ get_name(&top_tag,">")+">";
 			}
 			
 			out << " Se esperaba " << espererado_tag << " en lugar de " << error_tag << std::endl;
